@@ -65,7 +65,6 @@ nav a:hover { color: var(--purple); }
 .execution-figure { margin-top: 35px; padding: 18px 10px; }
 .execution-figure h3 { margin: 0 8px 20px; text-align: center; font-size: 18px; }
 h1 { max-width: 1030px; margin: 20px auto 0; }
-.project-name { display: block; color: var(--purple); font-size: clamp(42px, 5vw, 60px); font-weight: 750; letter-spacing: -2.7px; margin-bottom: 12px; }
 .paper-title { display: block; font-size: clamp(27px, 3.2vw, 42px); font-weight: 650; letter-spacing: -1.35px; line-height: 1.22; text-wrap: balance; }
 .authors { margin-top: 28px; color: var(--purple); font-size: 21px; }
 .author-separator { margin-right: 12px; }
@@ -183,7 +182,6 @@ footer { padding: 44px 0 26px; text-align: center; background: #f5f5f5; border-t
   .execution-figure { margin-top: 26px; }
   .execution-figure h3 { font-size: 16px; }
   .hero { padding-top: 35px; padding-bottom: 28px; }
-  .project-name { letter-spacing: -2px; margin-bottom: 14px; }
   .paper-title { letter-spacing: -.8px; font-size: 27px; }
   .authors { font-size: 18px; margin-top: 22px; }
   .affiliation { font-size: 12px; max-width: 300px; margin-inline: auto; }
