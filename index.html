@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4b2e83">
+  <meta name="description" content="CLIS-MPPI addresses execution delay with initial-state sampling and rollout-based feedback. A CDC 2026 project by Zidong Liu and Xu Chen, University of Washington.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CLIS-MPPI | Closed-Loop MPPI Under Execution Delay">
+  <meta property="og:description" content="From delay-aware initial-state sampling to closed-loop execution. Real-world validation on a 6-DoF UR5e manipulator.">
+  <meta property="og:url" content="https://macs-lab.github.io/CLIS-MPPI/">
+  <meta property="og:image" content="https://macs-lab.github.io/CLIS-MPPI/static/images/experiments_h5_2.png">
+  <title>CLIS-MPPI | CDC 2026</title>
+  <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./static/css/style.css">
+  <script src="./static/js/config.js" defer></script>
+  <script src="./static/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-paper" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="icon-video" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3Z"/></symbol>
+    <symbol id="icon-citation" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <nav aria-label="Main navigation"><a href="#method">Method</a><a href="#experiments">Experiments</a><a href="#bibtex">Citation</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="paper-title">
+      <div class="venue">
+        <a class="conference-logo-link" href="https://cdc2026.ieeecss.org/" target="_blank" rel="noopener noreferrer" aria-label="CDC 2026 official conference website"><img class="conference-logo" src="./static/images/cdc2026-logo.png" width="245" height="81" alt="CDC 2026, Honolulu, Hawaii"></a>
+        <p class="venue-copy">Accepted to <strong>65th IEEE Conference on Decision and Control (CDC 2026)</strong></p>
+      </div>
+      <h1 id="paper-title"><span class="project-name">CLIS-MPPI</span><span class="paper-title">Closed-Loop Model Predictive Path Integral Control With Initial-State Sampling Under Execution Delay</span></h1>
+      <p class="authors"><span>Zidong Liu</span><span class="author-separator">,</span> <span>Xu Chen<sup>†</sup></span></p>
+      <p class="affiliation">Department of Mechanical Engineering, University of Washington</p>
+      <p class="author-note"><sup>†</sup> Corresponding author</p>
+      <div class="hero-support" aria-label="Research support" aria-describedby="support-funding">
+        <span class="support-label">Supported by</span>
+        <div class="support-logos">
+          <a href="https://www.washington.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Washington"><img class="supporter-logo uw-logo" src="./static/images/uw-block-w.png" width="450" height="303" alt=""></a>
+          <span class="support-plus" aria-hidden="true">+</span>
+          <a href="https://www.amazon.science/" target="_blank" rel="noopener noreferrer" aria-label="Amazon"><img class="supporter-logo amazon-logo" src="./static/images/amazon-logo.png" width="6110" height="2047" alt=""></a>
+        </div>
+        <a class="support-name" href="https://www.sciencehub.uw.edu/" target="_blank" rel="noopener noreferrer">UW+Amazon Science Hub</a>
+        <span class="visually-hidden" id="support-funding">This work was supported in part by an Amazon-UW Science Hub Gift Award.</span>
+      </div>
+      <div class="resource-buttons" aria-label="Paper resources">
+        <a class="button button-dark" data-resource="paper" href="./static/pdfs/paper.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-paper"/></svg>Paper</a>
+        <a class="button button-outline" id="arxiv-link" aria-disabled="true" role="link" tabindex="0" aria-describedby="arxiv-status"><span class="arxiv-icon" aria-hidden="true">χ</span>arXiv<span class="soon">Soon</span></a>
+        <a class="button button-dark" id="video-link" href="#demonstration"><svg class="icon"><use href="#icon-video"/></svg>Demo</a>
+        <a class="button button-dark" href="#bibtex"><svg class="icon"><use href="#icon-citation"/></svg>BibTeX</a>
+      </div>
+      <p class="resource-status" id="arxiv-status">arXiv link coming soon.</p>
+      <p class="hero-summary">Bringing planning and execution closer together.<br><strong>Delay-aware sampling. Rollout-based feedback. Closed-loop control.</strong></p>
+      <figure class="hero-figure" id="demonstration">
+        <a class="figure-link" href="./static/images/experiments_h5_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open the UR5e experimental sequence at full resolution"><img src="./static/images/experiments_h5_2.png" width="1359" height="542" fetchpriority="high" alt="Five stages of the real-world UR5e narrow-passage experiment, with matching Isaac Gym views: initial pose, approaching, two obstacle-bypassing stages, and target reaching."></a>
+        <figcaption>A 6-DoF UR5e navigates a narrow passage and reaches its target, with GPU-parallel rollouts in Isaac Gym.</figcaption>
+      </figure>
+      <div class="highlights" aria-label="Key experimental findings">
+        <div><strong>5 / 5</strong><span>collision-free hardware runs</span></div>
+        <div><strong>5.9×</strong><span>lower joint-position RMSE</span></div>
+        <div><strong>9.7×</strong><span>lower joint-velocity RMSE</span></div>
+        <div><strong>87.6 <small>ms</small></strong><span>mean planning time</span></div>
+      </div>
+      <p class="highlight-note">Hardware findings for the reported task; RMSE reductions are relative to standard MPPI.</p>
+    </section>
+
+    <section class="section container" aria-labelledby="contributions-title">
+      <p class="eyebrow">What this work adds</p>
+      <h2 id="contributions-title">Main Contributions</h2>
+      <div class="contributions">
+        <article><span class="step-label">01</span><h3>Delay-aware initial states</h3><p>Represent execution-time state mismatch as a distribution of plausible initial states, and jointly sample initial-state and control perturbations for MPPI rollouts.</p></article>
+        <article><span class="step-label">02</span><h3>Feedback from rollouts</h3><p>Extract a nominal trajectory and local feedback gains from the weighted rollout distribution, then combine the MPPI feedforward update with online state-feedback correction.</p></article>
+        <article><span class="step-label">03</span><h3>Real-world validation</h3><p>Evaluate the combined formulation on a UR5e narrow-passage task, demonstrating improved collision avoidance and closer agreement between predicted and executed motion.</p></article>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="problem" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">The challenge</p><h2 id="problem-title">The robot keeps moving while the planner computes.</h2><p>By the time a new command takes effect, the state used to plan it can already be out of date. In a narrow passage, even a small deviation matters.</p></div>
+        <figure class="paper-figure delay-figure"><a class="figure-link" href="./static/images/delay.png" target="_blank" rel="noopener noreferrer" aria-label="Open the execution-delay timeline at full resolution"><img src="./static/images/delay.png" width="2088" height="892" loading="lazy" alt="Planning and execution timeline showing the robot continuing to execute the previous control during planning delay, creating a mismatch between the measured planning state and the actual application state."></a><figcaption>Execution delay separates the measured planning state from the state at which the new control becomes effective.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section container" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><p class="eyebrow">The approach</p><h2 id="method-title">Method Overview</h2><p>Account for uncertainty at the start of planning. Correct the remaining mismatch at execution.</p></div>
+      <figure class="paper-figure framework-figure"><a class="figure-link" href="./static/images/Framework2.png" target="_blank" rel="noopener noreferrer" aria-label="Open the CLIS-MPPI framework at full resolution"><img src="./static/images/Framework2.png" width="4230" height="1545" loading="lazy" alt="CLIS-MPPI framework: initial-state and control sampling, GPU-parallel forward simulation, weighted nominal-trajectory and feedback-gain extraction, and a closed-loop MPPI update sent to the robot."></a><figcaption>CLIS-MPPI converts execution delay into initial-state uncertainty and extracts a local feedback policy from the resulting rollouts.</figcaption></figure>
+      <ol class="method-steps">
+        <li><h3>Sample initial states and controls</h3><p>Draw perturbed initial states around the measured state using delay-induced covariance, together with perturbed control sequences.</p></li>
+        <li><h3>Simulate and weight rollouts</h3><p>Run forward simulations in parallel, evaluate trajectory costs, and form an importance-weighted nominal state-control trajectory.</p></li>
+        <li><h3>Extract local feedback</h3><p>Compute regularized local feedback gains from weighted state-control covariance statistics of the rollouts.</p></li>
+        <li><h3>Apply closed-loop control</h3><p>Combine the feedforward command with a correction based on the current measured state at control execution.</p></li>
+      </ol>
+      <div class="equation-panel"><span class="equation-label">Execution-time control law</span><p class="equation" aria-label="u command at time t equals u feedforward at time t plus K at time t times the difference between the current state and the nominal reference state"><i>u</i><sub>t</sub><sup>cmd</sup> = <i>u</i><sub>ff,t</sub> + <i>K</i><sub>t</sub> (<i>x</i><sub>t</sub> − <span class="overbar"><i>x</i></span><sub>t</sub>)</p><p>The feedforward term provides predictive guidance; local feedback corrects execution-time state deviations.</p></div>
+    </section>
+
+    <section class="section section-tinted" id="experiments" aria-labelledby="experiments-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">From simulation to hardware</p><h2 id="experiments-title">Real-World Experiments</h2><p>A tabletop obstacle and a vertical wall leave a narrow collision-free passage for the UR5e to reach a target cube.</p></div>
+        <figure class="paper-figure setup-figure"><a class="figure-link" href="./static/images/experiment_setup.png" target="_blank" rel="noopener noreferrer" aria-label="Open the hardware and simulation setup at full resolution"><img src="./static/images/experiment_setup.png" width="1280" height="484" loading="lazy" alt="ROS connects the physical UR5e to CUDA-accelerated forward simulation in Isaac Gym; robot states feed the simulator and CLIS-MPPI returns optimized joint-velocity commands."></a><figcaption>ROS provides the state and command interface between the physical UR5e and CUDA-accelerated rollouts in Isaac Gym.</figcaption></figure>
+        <dl class="experiment-specs"><div><dt>Platform</dt><dd>6-DoF UR5e</dd></div><div><dt>Control rate</dt><dd>10 Hz</dd></div><div><dt>Rollouts</dt><dd>50</dd></div><div><dt>Horizon</dt><dd>12 steps</dd></div><div><dt>Compute</dt><dd>GeForce GTX 1650</dd></div></dl>
+        <figure class="paper-figure execution-figure" aria-labelledby="execution-title">
+          <h3 id="execution-title">Representative Execution</h3>
+          <a class="figure-link" href="./static/images/experiments_h5_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open the UR5e experimental sequence at full resolution"><img src="./static/images/experiments_h5_2.png" width="1359" height="542" loading="lazy" alt="Five stages of the UR5e experiment, with hardware views above and matching Isaac Gym simulation views below: initial pose, approaching, obstacle bypassing, and target reaching."></a>
+          <figcaption>The UR5e approaches the narrow passage, bypasses the obstacle, and reaches the target cube. Top: hardware execution. Bottom: corresponding simulation views.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section container" id="video" aria-labelledby="demo-title" hidden>
+      <div class="section-heading"><p class="eyebrow">Hardware demonstration</p><h2 id="demo-title">Through the Narrow Passage</h2><p>Approaching the obstacle, bypassing it through the gap, and reaching the target.</p></div>
+      <video id="demo-video" class="demo-video" controls playsinline preload="metadata" hidden aria-label="CLIS-MPPI UR5e experiment video" poster="./static/images/experiments_h5_2.png">Your browser does not support HTML video.</video>
+      <a id="external-video" class="button button-dark external-video" hidden target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-video"/></svg>Watch experiment video<svg class="icon"><use href="#icon-arrow"/></svg></a>
+    </section>
+
+    <section class="section section-tinted" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Experimental findings</p><h2 id="results-title">Safer Execution. Better Planning–Execution Consistency.</h2><p>Comparison with standard MPPI on the same real-world narrow-passage task.</p></div>
+        <div class="table-scroll" role="region" aria-label="Results comparison table; scroll horizontally on small screens" tabindex="0"><table><caption class="visually-hidden">Reported real-world UR5e results for standard MPPI and CLIS-MPPI</caption><thead><tr><th scope="col">Metric</th><th scope="col">MPPI</th><th scope="col">CLIS-MPPI <span class="table-tag">Ours</span></th></tr></thead><tbody><tr><th scope="row">Collision-free runs</th><td>3 / 5</td><td>5 / 5</td></tr><tr><th scope="row">Mean planning time</th><td>87.5 ms</td><td>87.6 ms</td></tr><tr><th scope="row">Task completion time<sup>1</sup></th><td>25.4 s</td><td>24.4 s</td></tr><tr><th scope="row">End-effector path length<sup>1</sup></th><td>0.456 m</td><td>0.425 m</td></tr><tr><th scope="row">Joint-position RMSE<sup>2</sup></th><td>0.100 rad</td><td>0.017 rad</td></tr><tr><th scope="row">Joint-velocity RMSE<sup>2</sup></th><td>0.108 rad/s</td><td>0.011 rad/s</td></tr></tbody></table></div>
+        <div class="results-notes"><p><sup>1</sup> Completion time and path length are averaged over each method’s collision-free runs: 3 for MPPI and 5 for CLIS-MPPI.</p><p><sup>2</sup> RMSE measures deviation from the forward-simulated reference state. The paper reports the error curves from the trial with median end-effector path length among the 3 valid collision-free trials.</p></div>
+        <div class="results-figures"><figure class="paper-figure"><h3>Joint Position Errors</h3><a class="figure-link" href="./static/images/pos_errors2.png" target="_blank" rel="noopener noreferrer" aria-label="Open joint-position error plots at full resolution"><img src="./static/images/pos_errors2.png" width="1100" height="977" loading="lazy" alt="Joint position errors with respect to the forward-simulated reference joint positions for all six joints, comparing MPPI in blue and CLIS-MPPI in orange."></a><figcaption>Joint position errors with respect to the forward-simulated reference joint positions for MPPI and CLIS-MPPI.</figcaption></figure><figure class="paper-figure"><h3>Joint Velocity Errors</h3><a class="figure-link" href="./static/images/vel_errors2.png" target="_blank" rel="noopener noreferrer" aria-label="Open joint-velocity error plots at full resolution"><img src="./static/images/vel_errors2.png" width="1100" height="977" loading="lazy" alt="Joint velocity errors with respect to the forward-simulated reference joint velocities for all six joints, comparing MPPI in blue and CLIS-MPPI in orange."></a><figcaption>Joint velocity errors with respect to the forward-simulated reference joint velocities for MPPI and CLIS-MPPI.</figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="section container paper-section" id="paper" aria-labelledby="paper-section-title">
+      <div><p class="eyebrow">Read the full work</p><h2 id="paper-section-title">Paper</h2><p>CLIS-MPPI: Closed-Loop Model Predictive Path Integral Control With Initial-State Sampling Under Execution Delay</p><p class="paper-byline">Zidong Liu and Xu Chen · CDC 2026</p><a class="button button-dark" data-resource="paper" href="./static/pdfs/paper.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-paper"/></svg>Read paper<svg class="icon"><use href="#icon-arrow"/></svg></a></div>
+      <a class="paper-preview" data-resource="paper" href="./static/pdfs/paper.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the full CLIS-MPPI paper"><img src="./static/images/paper-preview.png" width="1160" height="1500" loading="lazy" alt="First page of the CLIS-MPPI paper with title, authors, abstract and execution-delay diagram."></a>
+    </section>
+
+    <section class="section section-tinted" id="bibtex" aria-labelledby="bibtex-title">
+      <div class="reading-width"><div class="citation-heading"><div><p class="eyebrow">Cite this work</p><h2 id="bibtex-title">BibTeX</h2></div><div class="citation-actions"><a class="button button-small button-outline" href="./citation.bib" download><svg class="icon"><use href="#icon-download"/></svg>.bib</a><button class="button button-small button-dark" id="copy-bibtex" type="button"><svg class="icon"><use href="#icon-copy"/></svg><span id="copy-label">Copy</span></button></div></div>
+        <pre class="citation-code" tabindex="0" aria-label="BibTeX citation"><code id="bibtex-code">@inproceedings{liu2026clismppi,
+  title     = {{CLIS-MPPI}: Closed-Loop Model Predictive Path Integral
+               Control With Initial-State Sampling Under Execution Delay},
+  author    = {Liu, Zidong and Chen, Xu},
+  booktitle = {65th IEEE Conference on Decision and Control (CDC)},
+  year      = {2026}
+}</code></pre><p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p class="template-credit">Page design inspired by the <a href="https://macs-lab.github.io/robotic-inspection-orientation-control-2026/" target="_blank" rel="noopener noreferrer">MACS Lab robotic inspection project</a> and <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>.</p>
+      <a class="back-top" href="#paper-title">Back to top &uarr;</a>
+    </div>
+  </footer>
+</body>
+</html>
