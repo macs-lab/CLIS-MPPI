@@ -8,7 +8,7 @@ Department of Mechanical Engineering, University of Washington
 
 Accepted to the **65th IEEE Conference on Decision and Control (CDC 2026)**.
 
-[Project Website](https://macs-lab.github.io/CLIS-MPPI/) | [Paper](static/pdfs/paper.pdf) | [BibTeX](citation.bib)
+[Project Website](https://macs-lab.github.io/CLIS-MPPI/) | [Paper](static/pdfs/paper.pdf) | [arXiv](https://arxiv.org/abs/2610.21239) | [BibTeX](citation.bib)
 
 CLIS-MPPI addresses the mismatch between the state used during planning and the actual robot state at control execution. It models execution delay as initial-state uncertainty, samples initial states and control sequences, and combines the MPPI feedforward update with rollout-based local feedback correction.
 
@@ -23,14 +23,14 @@ Edit [`static/js/config.js`](static/js/config.js):
 ```js
 window.CLIS_CONFIG = Object.freeze({
   paperUrl: "./static/pdfs/paper.pdf", // Replace with a public paper or PDF URL.
-  arxivUrl: "",                      // Add the arXiv URL when available.
+  arxivUrl: "https://arxiv.org/abs/2610.21239",
   videoUrl: "",                      // Add an external video URL when available.
   videoFile: ""                      // Or use ./static/videos/experiment.mp4.
 });
 ```
 
 - **Paper:** Updating `paperUrl` changes all three paper links on the page. The included PDF remains the fallback when JavaScript is unavailable.
-- **arXiv:** The button shows "Soon" until a URL is provided, then becomes active automatically.
+- **arXiv:** The button links to the public preprint. Keep the fallback link in `index.html` synchronized with `arxivUrl` so it also works without JavaScript.
 - **Demo / Video:** With no video configured, Demo links to the experiment image. An external URL enables the Video link; a local video file enables the embedded player and takes precedence over the external URL. Videos do not autoplay.
 - **BibTeX:** The citation section supports copying and downloading. Keep the citation in `index.html` synchronized with `citation.bib` when adding publication metadata.
 

@@ -25,8 +25,9 @@
     arxivLink.rel = "noopener noreferrer";
     arxivLink.removeAttribute("aria-disabled");
     arxivLink.removeAttribute("aria-describedby");
-    arxivLink.querySelector(".soon").remove();
-    document.getElementById("arxiv-status").hidden = true;
+    arxivLink.querySelector(".soon")?.remove();
+    const arxivStatus = document.getElementById("arxiv-status");
+    if (arxivStatus) arxivStatus.hidden = true;
   }
 
   const videoUrl = resourceUrl(config.videoUrl);
