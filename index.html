@@ -54,15 +54,14 @@
         <span class="visually-hidden" id="support-funding">This work was supported in part by an Amazon-UW Science Hub Gift Award.</span>
       </div>
       <div class="resource-buttons" aria-label="Paper resources">
-        <a class="button button-dark" data-resource="paper" href="./static/pdfs/paper.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-paper"/></svg>Paper</a>
-        <a class="button button-outline" id="arxiv-link" href="https://arxiv.org/abs/2610.21239" target="_blank" rel="noopener noreferrer"><span class="arxiv-icon" aria-hidden="true">χ</span>arXiv</a>
+        <a class="button button-dark" id="arxiv-link" href="https://arxiv.org/abs/2610.21239" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-paper"/></svg>arXiv</a>
         <a class="button button-dark" id="video-link" href="#demonstration"><svg class="icon"><use href="#icon-video"/></svg>Demo</a>
         <a class="button button-dark" href="#bibtex"><svg class="icon"><use href="#icon-citation"/></svg>BibTeX</a>
       </div>
       <p class="hero-summary">Bringing planning and execution closer together.<br><strong>Delay-aware sampling. Rollout-based feedback. Closed-loop control.</strong></p>
       <figure class="hero-figure" id="demonstration">
         <a class="figure-link" href="./static/images/experiments_h5_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open the UR5e experimental sequence at full resolution"><img src="./static/images/experiments_h5_2.png" width="1359" height="542" fetchpriority="high" alt="Five stages of the real-world UR5e narrow-passage experiment, with matching Isaac Gym views: initial pose, approaching, two obstacle-bypassing stages, and target reaching."></a>
-        <figcaption>A 6-DoF UR5e navigates a narrow passage and reaches its target, with GPU-parallel rollouts in Isaac Gym.</figcaption>
+        <figcaption>A UR5e manipulator moves through a narrow passage to bring its end effector to a target cube while avoiding surrounding obstacles.</figcaption>
       </figure>
       <div class="highlights" aria-label="Key experimental findings">
         <div><strong>5 / 5</strong><span>collision-free hardware runs</span></div>
@@ -110,7 +109,7 @@
         <figure class="paper-figure execution-figure" aria-labelledby="execution-title">
           <h3 id="execution-title">Representative Execution</h3>
           <a class="figure-link" href="./static/images/experiments_h5_2.png" target="_blank" rel="noopener noreferrer" aria-label="Open the UR5e experimental sequence at full resolution"><img src="./static/images/experiments_h5_2.png" width="1359" height="542" loading="lazy" alt="Five stages of the UR5e experiment, with hardware views above and matching Isaac Gym simulation views below: initial pose, approaching, obstacle bypassing, and target reaching."></a>
-          <figcaption>The UR5e approaches the narrow passage, bypasses the obstacle, and reaches the target cube. Top: hardware execution. Bottom: corresponding simulation views.</figcaption>
+          <figcaption>A black box in front of the UR5e and a nearby vertical wall form a narrow passage above the tabletop. A cube on the table marks the end-effector goal; the arm must pass through the gap without contacting the box, wall, or table. Columns (a)–(e) show the initial pose, approach, obstacle bypassing, and target reaching. The top row shows the physical experiment, and the bottom row shows the corresponding Isaac Gym scene.</figcaption>
         </figure>
       </div>
     </section>

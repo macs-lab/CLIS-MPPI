@@ -29,7 +29,7 @@ window.CLIS_CONFIG = Object.freeze({
 });
 ```
 
-- **Paper:** Updating `paperUrl` changes all three paper links on the page. The included PDF remains the fallback when JavaScript is unavailable.
+- **Paper:** Updating `paperUrl` changes the Read paper and paper-preview links in the Paper section. The included PDF remains the fallback when JavaScript is unavailable.
 - **arXiv:** The button links to the public preprint. Keep the fallback link in `index.html` synchronized with `arxivUrl` so it also works without JavaScript.
 - **Demo / Video:** With no video configured, Demo links to the experiment image. An external URL enables the Video link; a local video file enables the embedded player and takes precedence over the external URL. Videos do not autoplay.
 - **BibTeX:** The citation section supports copying and downloading. Keep the citation in `index.html` synchronized with `citation.bib` when adding publication metadata.
